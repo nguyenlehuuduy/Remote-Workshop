@@ -116,8 +116,8 @@ button {
 }
 
 video {
-    width: 350px;
-    height: 250px;
+    width: 250px;
+    height: 150px;
     object-fit: cover;
     border-radius: .5rem;
     margin: .5rem;

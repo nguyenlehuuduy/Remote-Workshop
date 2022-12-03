@@ -21,11 +21,8 @@ function formatAMPM(date) {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
 }
-document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
-setInterval(setTime, 1000);
-function setTime() {
-    document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
-}
+
+
 
 document.getElementById('chat-box-btn').addEventListener('click', function () {
     if (document.getElementById('chat-box').style.display == "none") {
@@ -66,6 +63,7 @@ navigator.mediaDevices.getUserMedia({
 
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
+    console(userId);
 })
 
 myPeer.on('open', id => {
@@ -86,9 +84,9 @@ function connectToNewUser(userId, userName, stream) {
 }
 
 function addVideoStream(video, stream, userName) {
-    video.srcObject = stream; //setting the source of my video
+    video.srcObject = stream; //thiết lập nguồn video của tôi
     video.addEventListener('loadedmetadata', () => {
-        video.play(); //start to play the video once loaded
+        video.play(); //bắt đầu phát video sau khi tải xong
     });
     let outerDiv = document.createElement('div');
     outerDiv.classList.add('user-video');
@@ -100,7 +98,7 @@ function addVideoStream(video, stream, userName) {
     nameDiv.classList.add('user-name');
     nameDiv.innerHTML = userName;
     outerDiv.appendChild(nameDiv);
-    videoGrid.appendChild(outerDiv); //appending to 'video-grid' div
+    videoGrid.appendChild(outerDiv); //nối với div 'video-grid'
 }
 
 function muteUnmuteUser() {
@@ -180,6 +178,7 @@ const scrollToBottom = () => {
 }
 scrollToBottom();
 
+//share screen
 
 var screenSharing = false
 function startScreenShare() {
@@ -203,6 +202,8 @@ function startScreenShare() {
     })
 }
 
+//Stop screen
+
 function stopScreenSharing() {
     if (!screenSharing) return;
     let videoTrack = myVideoStream.getVideoTracks()[0];
@@ -217,6 +218,17 @@ function stopScreenSharing() {
     });
     screenSharing = false
 }
+
+//set time
+
+document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
+setInterval(setTime, 1000);
+
+
+function setTime() {
+    document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
+}
+
 
 document.getElementById('screen-share-btn').addEventListener('click', startScreenShare);
 
