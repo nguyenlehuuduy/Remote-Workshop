@@ -1,67 +1,71 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-
-}
-body{
-    background-image: url(/img/background.jpg);
+/* MOBILE DEVICES  */
+@media (min-width:320px) and (max-width:480px) {
+    .home-text {
+        width: auto !important;
+    }
 }
 
+/* LAPTOP DEVICES  */
+@media (min-width:768px) and (max-width:1023px) {
 
-.background{
-    height: 550px;
-    width: 700px;
-    margin-top: 20px;
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .premium_meeting {
+        padding-right: 0px !important;
+        width: 100% !important;
+    }
+
+    .start_meeting {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .start_meeting>button {
+        margin-bottom: 5px;
+    }
+
+    #first-image {
+        margin-right: 0px;
+    }
+
+    .first-image-parent {
+        display: flex;
+        justify-content: end;
+    }
 }
 
-#content{
-    position: relative;
+/* DESKTOP DEVICES  */
+@media (min-width:1024px) and (max-width:1200px) {
+    .start_meeting {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .start_meeting>button {
+        margin-bottom: 5px;
+    }
 }
 
-.build{
-    position: absolute;
-    margin-top: 80px ;
-    font-size: 38px;
-    font-weight: bold;
-    color: #fff;
-}
-#voice{
-    position: absolute;
-    margin-top:200px ;
-    color: rgb(28, 28, 221);
-    font-size: 38px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-}
-#text_span1{
-    position: absolute;
-    margin-top: 260px;
-    color: #fff;
-    font-size: 24px;
-}
-.new_meeting{
-    position: absolute;
-    margin-top: 380px;
-    margin-left: 120px;
-    background-color: rgb(1, 1, 126);
-    padding-right: 20px;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-    border-radius: 10px;
-    padding-bottom: 5px;
+@media (min-width:1201px) {
+    .premium_meeting {
+        padding-right: 0px !important;
+    }
 
-}
-.new_meeting a{
-    text-decoration: none;
-    color: white !important;
-    font-size: 20px;
-    font-family: RobotoMono-Regular,RobotoMono;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    .start_meeting {
+        display: flex;
+        flex-direction: column !important;
+    }
 
+    .start_meeting>button {
+        margin-bottom: 5px;
+    }
 }
-#logo{
-    height: 100px;
-    width: 100px;
-}
-.row .col-6{
-    font-size: 30px;
+
+@media (min-width:1300px) {
+    .start_meeting>button {
+        margin-bottom: 5px;
+    }
 }
